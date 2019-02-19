@@ -1,15 +1,109 @@
-This is a repository for writing paper using markdown and sublime text.  The emaphsis is on a couple things:
+#A Beautiful Start (to a new paper)
 
-1. Maximum flexibility (uses pandoc so can output PDF or Microsoft .docx)
+This is a repository for getting started writing academic papers and other content (e.g., grants) using Markdown.  The goal is to provide a common and simplified workflow which also aid in distraction free writing, organized work flows, while avoiding too much of the hassles with working in raw LaTeX.
 
-2. Simplicity (messing with a lot of boiler place LaTeX is a pain)
+The goals I had when setting this up were:
 
-3. Quick access to references while writing (plugings for sublime enable inserting references seamlessly while writing).
+1. *Maximum flexibility* -  esp reguarding output (uses pandoc so can output PDF or Microsoft .docx)
+1. *Simplicity* - messing with a lot of boiler place LaTeX is a pain
+1. *Quick access to references while writing* - plugings for sublime enable inserting references seamlessly while writing 
+1. *Repeatability/standardization* - want everyone in the lab to consider this method to simpify writing
+1. *Distraction free writing* - Uses themes and the "distraction free" writing mode in Sublime to help you concentrate
+1. *Features useful to academics* - Uses some special modes for academic writing using markdown.
 
-4. Repeatability (want everyone in the lab to consider this method to simpify writing)
+Ultimately the set up is inspired by the paper writing workflow set up by Alex Rich (@alexsrich) for his dissertation projects in my lab and [this blog post by ericmlj](http://www.ericmjl.com/blog/2016/6/22/tooling-up-for-plain-text-academic-writing-in-markdown/).
 
-5. Distraction free writing.  Uses themes and the "distraction free" writing mode in Sublime to help you concentrate
 
-6. Uses some special modes for academic writing using markdown.
+# Install `pandoc`
 
-http://www.ericmjl.com/blog/2016/6/22/tooling-up-for-plain-text-academic-writing-in-markdown/
+`pandoc` is the package which converts between a variety of different text formats including markdown -> (latex, word, etc...).  To install use a system package manager like homebrew.  You also want to install `pandoc-fignos` and `pandoc-citeproc`.  After installed type `which pandoc` to figure out there the system installed these tools as you will need to have them available.
+
+# You need a .bib file
+
+References should be managed in LaTeX using BibTeX files (.bib).  Many tools exist for helping you with this including plain text tools as well as fancy things like Mendeley or (now defuct but possibly coming back) Papers.  There isn't an easy answer to this but my recommendation is to keep one, global reference list for all your work.  BibTex will search through the file easily and at most you will have in the 1,000s of entries probably.  If you start making a separate .bib file for every project you start getting conflicting cite-keys, you fix a reference in one file and it isn't propogated out to the others.  Save yourself some trouble and let everyone in your lab or group use the same global file that is collectively edited for consistency, quality, and completeness.  You need to know the exact path to that file on your system to configure the editor below (e.g., `/path/to/master/library.bib`).
+
+# You want to customize your Sublime Text environment
+
+You can probably do a lot of this in other editors including the amazing Atom editor.  However, sublime and Atom share much in common, and I've sort of become entrenched to sublime for some reason.
+
+You will want to install the following packages:
+
+1. [Package Control](https://packagecontrol.io/installation)
+1. [CiteBibTex](https://packagecontrol.io/packages/CiteBibtex)
+1. [AcademicMarkdown](https://packagecontrol.io/packages/AcademicMarkdown)
+1. [PackageSync](https://packagecontrol.io/packages/PackageSync)
+1. [WordCount](https://packagecontrol.io/packages/WordCount)
+
+Some optional ones are:
+1. [Pandoc](https://packagecontrol.io/packages/Pandoc)
+1. [BracketHighlighter](https://packagecontrol.io/packages/BracketHighlighter)
+1. [Git](https://packagecontrol.io/packages/Git)
+1. [GitGutter](https://packagecontrol.io/packages/GitGutter)
+
+
+*CiteBibTex*
+
+Find the corresponding configuration fields, and change them to the following (making appropriate changes):
+
+```json
+    "bibtex_file": "/path/to/master/library.bib",
+```
+```json
+    "autodetect_citation_style": true,
+```
+
+### User Interface
+
+Today I learned that ST3 has a "Distraction Free Writing Mode", under the `View` menu. Earlier on, I also learned that it has a pane view mode, also under `View -->Layout`. Both have associated shortcut keys. My writing interface ended up looking something like what's in Figure {@fig:two-pane}.
+
+![Two pane view.](two-pane.png){#fig:two-pane}
+
+My outline is on the right, and the main text is on the left, and there's no distracting tabs, sliding preview, or directory structure (as is what I'm used to for coding).
+
+### Writing
+
+Get started by adding the YAML headers in the document (Figure {@fig:yaml-header}).
+
+![YAML Headers.](yaml-header.png){#fig:yaml-header}
+
+Specifically, the format of what I have above is:
+
+```markdown
+---
+title: "My Title Here"
+author: 
+- "Author 1 (Affiliation)"
+- "Author 2 (Affiliation)"
+date: 22 June 2016
+csl: nature.csl
+---
+```
+
+More details on what metadata can be stored in the headers can be found on the [Pandoc README](http://pandoc.org/README.html).
+
+### Citations
+
+Citations are done in Markdown by inserting:
+
+```markdown
+   [@citekey]
+```
+
+where the `citekey` is automatically generated by Papers, usually in the form of `LastName:YYYY[2- or 3-letter hash]`. An example of what gets inserted is `[@Young:2013px]`. I was reading through Papers' [documentation on the generation of a "universal" citekey](http://support.mekentosj.com/kb/cite-write-your-manuscripts-and-essays-with-citations/universal-citekey), and I quite like the idea. I think the specification is worth a read, and is an idea worth spreading (sorry, I like TED talks).
+
+# Building the LaTeX and PDF files
+
+There are a couple of ways to do this.  The link above provides and example of a `pandoc` library for sublime text.  However, I prefer a more traditional makefile system.  This repository includes a file that will build PDF and LaTeX version of the file and can easily be extended to build a Microsoft Word version.
+
+
+# Continually rebuilding when the file changes
+
+To continually build the files whenever you save the .mdown file using the makefile system install `fswatch` via homebrew and add a file called `~/.config/fish/functions/watchmake.fish`
+containing the following:
+```
+function watchmake
+   fswatch -o $argv | xargs -n1 -I{} make
+end
+```
+
+then type `watchmake manuscript.mdown` at the fish command prompt.

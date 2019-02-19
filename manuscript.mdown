@@ -21,6 +21,9 @@ There are types of lists:
 - something  
 - something else  
 - something else as well  
+- fun
+
+
 
 Or put another way:
 
