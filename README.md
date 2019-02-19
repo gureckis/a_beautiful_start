@@ -1,4 +1,4 @@
-#A Beautiful Start (to a new paper)
+# A Beautiful Start (to a new paper)
 
 This is a repository for getting started writing academic papers and other content (e.g., grants) using Markdown.  The goal is to provide a common and simplified workflow which also aid in distraction free writing, organized work flows, while avoiding too much of the hassles with working in raw LaTeX.
 
