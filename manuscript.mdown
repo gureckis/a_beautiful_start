@@ -1,0 +1,50 @@
+---
+title: A Beautiful Start to a (CogSci) Paper
+author: Someone and Todd M. Gureckis
+affiliation: New York University
+bibliography: library.bib
+header-includes:
+- \usepackage{soul}
+- \usepackage{color}
+- \usepackage{cogsci}
+- \usepackage{apacite}
+geometry: margin=1in
+abstract: "Put the abstract here"
+---
+
+# Introduction
+
+Markdown supports _italics_, __bold__, and ___bold_italics___ style.
+
+There are types of lists:
+
+- something  
+- something else  
+- something else as well  
+
+Or put another way:
+
+1. something  
+1. something else  
+1. something else as well  
+
+{>> This is a comment.  Using the AcademicMarkdownThis is a comment <<}
+
+A reference: [@Love2007]
+
+* Item A
+    - A sub list
+        + What?
+    - Another thing
+* A fun thing
+
+## I am a subsection
+
+Here is a figure that I will reference
+
+![This is my figure caption](figures/learning_trap.pdf){#fig:learning_trap}
+
+
+# Discussion
+
+# References
