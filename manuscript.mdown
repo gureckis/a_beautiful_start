@@ -23,8 +23,9 @@ There are types of lists:
 - something else as well  
 - fun
 
-[@Chapman1967, ]
+[@Chapman1967]
 
+\hl{hi}
 
 Or put another way:
 
@@ -32,7 +33,9 @@ Or put another way:
 1. something else  
 1. something else as well  
 
-{>> This is a comment.  Using the AcademicMarkdownThis is a comment <<}
+<!--
+ This is a comment.  Using the AcademicMarkdownThis is a comment 
+-->
 
 A reference: [@Love2007]
 
