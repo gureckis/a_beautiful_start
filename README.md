@@ -1,3 +1,5 @@
+
+
 # A Beautiful Start (to a new paper)
 
 This is a repository for getting started writing academic papers and other content (e.g., grants) using Markdown.  The goal is to provide a common and simplified workflow which also aid in distraction free writing, organized work flows, while avoiding too much of the hassles with working in raw LaTeX.
@@ -127,3 +129,13 @@ end
 ```
 
 then type `watchmake manuscript.mdown` at the fish command prompt.
+
+
+### Things I haven't quite worked out
+
+1. What is the best way to control figures in this environement
+1. Tables? (can we add an example)
+1. Math environment?
+1. Todolists and collaborative commenting/review
+1. How to diff between versions
+1. Add a nice latex cover letter on NYU letter heads
