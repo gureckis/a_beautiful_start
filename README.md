@@ -14,18 +14,18 @@ The goals I had when setting this up were:
 Ultimately the set up is inspired by the paper writing workflow set up by Alex Rich (@alexsrich) for his dissertation projects in my lab and [this blog post by ericmlj](http://www.ericmjl.com/blog/2016/6/22/tooling-up-for-plain-text-academic-writing-in-markdown/).
 
 
-# Install `pandoc`
+### Install `pandoc`
 
 `pandoc` is the package which converts between a variety of different text formats including markdown -> (latex, word, etc...).  To install use a system package manager like homebrew.  You also want to install `pandoc-fignos` and `pandoc-citeproc`.  After installed type `which pandoc` to figure out there the system installed these tools as you will need to have them available.
 
-# You need a .bib file
+### You need a .bib file
 
 References should be managed in LaTeX using BibTeX files (.bib).  Many tools exist for helping you with this including plain text tools as well as fancy things like Mendeley or (now defuct but possibly coming back) Papers.  There isn't an easy answer to this but my recommendation is to keep one, global reference list for all your work.  BibTex will search through the file easily and at most you will have in the 1,000s of entries probably.  If you start making a separate .bib file for every project you start getting conflicting cite-keys, you fix a reference in one file and it isn't propogated out to the others.  Save yourself some trouble and let everyone in your lab or group use the same global file that is collectively edited for consistency, quality, and completeness.  You need to know the exact path to that file on your system to configure the editor below (e.g., `/path/to/master/library.bib`).
 
 One approach I have yet to work out is to put the lab's global bibtex file into github and then include it as a submodule for each paper or project.
 This way even after a paper is published if the lab's global bibtex file was updated then the new citation information would propogate through.
 
-# You want to customize your Sublime Text environment
+### You want to customize your Sublime Text environment
 
 You can probably do a lot of this in other editors including the amazing Atom editor.  However, sublime and Atom share much in common, and I've sort of become entrenched to sublime for some reason.
 
@@ -107,7 +107,7 @@ Find the corresponding configuration fields, and change them to the following (m
 then you can press F10 on your keyboard to pull up a searchable index of the papers in your `library.bib`.  This means no need to go back and forth between your library manager software and the text window making some types of writing a bit smoother.
 
 
-# Building the LaTeX and PDF files
+### Building the LaTeX and PDF files
 
 There are a couple of ways to do this.  The link above provides and example of a `pandoc` library for sublime text.  
 
@@ -116,7 +116,7 @@ However, I prefer a more traditional makefile system.  This repository includes 
 You can also insteall the [Shell Exec](https://packagecontrol.io/packages/Shell%20Exec) package for sublime and within a few keycommands (and without switching to your terminal) you can run the `make` command yourself and build things.
 
 
-# Continually rebuilding when the file changes
+### Continually rebuilding when the file changes
 
 To continually build the files whenever you save the .mdown file using the makefile system install `fswatch` via homebrew and add a file called `~/.config/fish/functions/watchmake.fish`
 containing the following:
