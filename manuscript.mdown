@@ -23,6 +23,7 @@ There are types of lists:
 - something else as well  
 - fun
 
+[@Gureckis2006]
 [@Chapman1967]
 
 \hl{hi}

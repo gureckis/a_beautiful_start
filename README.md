@@ -133,7 +133,8 @@ then type `watchmake manuscript.mdown` at the fish command prompt.
 
 ### Things I haven't quite worked out
 
-1. What is the best way to control figures in this environement
+1. When you run the pandoc command it actually sort of replaces bibtext but pushing the actual citations names into the LaTeX source.  this means you can't easily cut and paste sections of the LaTeX out to another document (sad).  what up with that?  must be fixable.  i.e., i mean expand [@gureckis2017] to \cite{gureckis2017} not Gureckis et al. (2017) in the .tex source
+1. What is the best way to control figures in this environement?
 1. Tables? (can we add an example)
 1. Math environment?
 1. Todolists and collaborative commenting/review
