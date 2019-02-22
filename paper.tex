@@ -73,8 +73,8 @@
 \usepackage{color}
 \usepackage{cogsci}
 \usepackage{apacite}
-\usepackage[]{biblatex}
-\addbibresource{library.bib}
+\usepackage[]{natbib}
+\bibliographystyle{plainnat}
 
 \title{A Beautiful Start to a (CogSci) Paper}
 \author{Someone and Todd M. Gureckis}
@@ -106,7 +106,7 @@ There are types of lists:
   fun
 \end{itemize}
 
-\autocite{Gureckis2006} \autocite{Chapman1967}
+\citep{Gureckis2006} \citep{Chapman1967}
 
 \hl{hi}
 
@@ -123,7 +123,7 @@ Or put another way:
   something else as well
 \end{enumerate}
 
-A reference: \autocite{Love2007}
+A reference: \citep{Love2007}
 
 \begin{itemize}
 \tightlist
@@ -161,6 +161,7 @@ Here is a figure that I will reference
 \hypertarget{discussion}{%
 \section{Discussion}\label{discussion}}
 
-\printbibliography[title=References]
+\renewcommand\refname{References}
+  \bibliography{library.bib}
 
 \end{document}
