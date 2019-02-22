@@ -73,6 +73,8 @@
 \usepackage{color}
 \usepackage{cogsci}
 \usepackage{apacite}
+\usepackage[]{biblatex}
+\addbibresource{library.bib}
 
 \title{A Beautiful Start to a (CogSci) Paper}
 \author{Someone and Todd M. Gureckis}
@@ -104,7 +106,7 @@ There are types of lists:
   fun
 \end{itemize}
 
-(Gureckis and Goldstone 2006) (Chapman 1967)
+\autocite{Gureckis2006} \autocite{Chapman1967}
 
 \hl{hi}
 
@@ -121,7 +123,7 @@ Or put another way:
   something else as well
 \end{enumerate}
 
-A reference: (Love and Gureckis 2007)
+A reference: \autocite{Love2007}
 
 \begin{itemize}
 \tightlist
@@ -159,22 +161,6 @@ Here is a figure that I will reference
 \hypertarget{discussion}{%
 \section{Discussion}\label{discussion}}
 
-\hypertarget{references}{%
-\section*{References}\label{references}}
-\addcontentsline{toc}{section}{References}
-
-\hypertarget{refs}{}
-\leavevmode\hypertarget{ref-Chapman1967}{}%
-Chapman, Loren J. 1967. ``Illusory correlation in observational
-report.'' \emph{Journal of Memory and Language} 6 (1).
-
-\leavevmode\hypertarget{ref-Gureckis2006}{}%
-Gureckis, Todd M., and Robert L. Goldstone. 2006. ``Pragmatics and
-Cognition Thinking in Groups.'' \emph{Pragmatics \& Cognition}.
-
-\leavevmode\hypertarget{ref-Love2007}{}%
-Love, Bradley C., and Todd M. Gureckis. 2007. ``Models in search of a
-brain.'' \emph{Cognitive, Affective and Behavioral Neuroscience} 7 (2):
-90--108. \url{https://doi.org/10.3758/CABN.7.2.90}.
+\printbibliography[title=References]
 
 \end{document}
